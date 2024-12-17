@@ -7,11 +7,10 @@ import {MyToken} from "../src/MyToken.sol";
 
 contract BuyNFTWithERC20Test is Test {
     MyNFT public nft;
-    MyToken public token;  
+    MyToken public token;
     address public buyer = address(0x123);
 
     function setUp() public {
-
         token = new MyToken();
 
         nft = new MyNFT(address(0), 0, address(token), 10);
@@ -25,14 +24,14 @@ contract BuyNFTWithERC20Test is Test {
     function test_BuyNFTWithERC20() public {
         // Vérifier le solde initial du buyer en ERC20
         assertEq(token.balanceOf(buyer), 50); // Le buyer commence avec 50 tokens
-        assertEq(nft.balanceOf(buyer), 0);   // Le buyer n'a pas encore de NFT
+        assertEq(nft.balanceOf(buyer), 0); // Le buyer n'a pas encore de NFT
 
         // Simuler l'achat d'un NFT par le buyer
         vm.prank(buyer); // Simuler l'action par le buyer
         nft.mintWithERC20(buyer);
 
         // Vérifier le solde final du buyer en ERC20
-        assertEq(token.balanceOf(buyer), 40);       // 50 - 10 = 40
+        assertEq(token.balanceOf(buyer), 40); // 50 - 10 = 40
         assertEq(token.balanceOf(address(nft)), 10); // Le contrat NFT reçoit 10 tokens
 
         // Vérifier que le buyer possède bien un NFT

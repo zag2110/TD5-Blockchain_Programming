@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 interface IERC223 {
     function transfer(address to, uint256 value, bytes calldata data) external returns (bool);
+
     event Transfer(address indexed from, address indexed to, uint256 value, bytes data);
 }
 
@@ -14,7 +15,7 @@ contract ERC223Token is IERC223 {
     mapping(address => uint256) public balanceOf;
 
     constructor(uint256 _initialSupply) {
-        totalSupply = _initialSupply * 10**uint256(decimals);
+        totalSupply = _initialSupply * 10 ** uint256(decimals);
         balanceOf[msg.sender] = totalSupply; // Mint all tokens to deployer
     }
 
@@ -27,7 +28,8 @@ contract ERC223Token is IERC223 {
 
         // Check if recipient is a contract
         if (isContract(to)) {
-            (bool success,) = to.call(abi.encodeWithSignature("tokenFallback(address,uint256,bytes)", msg.sender, value, data));
+            (bool success,) =
+                to.call(abi.encodeWithSignature("tokenFallback(address,uint256,bytes)", msg.sender, value, data));
             require(success, "Receiver contract did not handle tokens properly");
         }
         return true;

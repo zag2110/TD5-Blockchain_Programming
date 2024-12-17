@@ -25,7 +25,7 @@ contract BuyNFTWithERC223Test is Test {
     function test_BuyNFTWithERC223() public {
         // Vérifiez le solde initial du buyer en ERC223
         assertEq(token.balanceOf(buyer), 50); // Le buyer commence avec 50 tokens
-        assertEq(nft.balanceOf(buyer), 0);   // Le buyer n'a pas encore de NFT
+        assertEq(nft.balanceOf(buyer), 0); // Le buyer n'a pas encore de NFT
 
         // Simulez le transfert de tokens ERC223 par le buyer pour acheter un NFT
         vm.prank(buyer); // Simule que le buyer effectue cette action

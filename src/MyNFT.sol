@@ -4,15 +4,16 @@ pragma solidity ^0.8.0;
 import "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 import "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 
-
 contract MyNFT is ERC721 {
     uint256 public nextTokenId;
     address public paymentToken223; // Adresse du contrat ERC223
-    IERC20 public paymentToken20;   // Contrat ERC20 pour le paiement
-    uint256 public price223;        // Prix d'un NFT en ERC223
-    uint256 public price20;         // Prix d'un NFT en ERC20
+    IERC20 public paymentToken20; // Contrat ERC20 pour le paiement
+    uint256 public price223; // Prix d'un NFT en ERC223
+    uint256 public price20; // Prix d'un NFT en ERC20
 
-    constructor(address _paymentToken223, uint256 _price223, address _paymentToken20, uint256 _price20) ERC721("MyNFT", "MNFT") {
+    constructor(address _paymentToken223, uint256 _price223, address _paymentToken20, uint256 _price20)
+        ERC721("MyNFT", "MNFT")
+    {
         paymentToken223 = _paymentToken223;
         price223 = _price223;
         paymentToken20 = IERC20(_paymentToken20);
