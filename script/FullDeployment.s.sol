@@ -13,9 +13,9 @@ contract FullDeployment is Script {
 
     function run() public {
         // Les arguments définis ici sont à destination des constructeurs
-        address token223Address = 0xABCDEFABCDEFABCDEFABCDEFABCDEFABCDEFABCD; // L'adresse du contrat ERC223
+        address token223Address = 0xABcdEFABcdEFabcdEfAbCdefabcdeFABcDEFabCD; // L'adresse du contrat ERC223
         uint256 nftPrice223 = 15 * 1e18; // Ici le prix de 15 tokens ERC223 pour un NFT
-        address token20Address = 0xDEF0123456789ABCDEF0123456789ABCDEF01234; // Ici l'adresse ERC20
+        address token20Address = 0xdeF0123456789abCDEf0123456789aBCDeF01234; // Ici l'adresse ERC20
         uint256 nftPrice20 = 25 * 1e18; // Ici le prix de 25 tokens ERC20 pour un NFT
 
         vm.startBroadcast();
