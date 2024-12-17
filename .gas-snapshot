@@ -1,4 +1,4 @@
+NumberStorageTest:testFuzz_SetNumber(uint256) (runs: 256, μ: 30977, ~: 31288)
+NumberStorageTest:test_Increment() (gas: 31303)
 BuyNFTWithERC20Test:test_BuyNFTWithERC20() (gas: 135029)
 BuyNFTWithERC223Test:test_BuyNFTWithERC223() (gas: 128770)
-CounterTest:testFuzz_SetNumber(uint256) (runs: 256, μ: 30977, ~: 31288)
-CounterTest:test_Increment() (gas: 31303)
